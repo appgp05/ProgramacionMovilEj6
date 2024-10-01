@@ -16,7 +16,17 @@ public class MainService {
             myListener.mainAction();
         }
     }
-    public void action(){
-        Toast.makeText(MainActivity.getMyInstance(), "Hola", Toast.LENGTH_SHORT);
+    public void saludar(){
+        Toast.makeText(MainActivity.getMyInstance(), "Holaa", Toast.LENGTH_SHORT).show();
+    }
+
+    public void obtener(){
+        Toast.makeText(MainActivity.getMyInstance(), "Obtener", Toast.LENGTH_SHORT).show();
+    }
+    public void buscar(){
+        Toast.makeText(MainActivity.getMyInstance(), "Buscar", Toast.LENGTH_SHORT).show();
+    }
+    public void detalles(){
+        Toast.makeText(MainActivity.getMyInstance(), "Detalles", Toast.LENGTH_SHORT).show();
     }
 }

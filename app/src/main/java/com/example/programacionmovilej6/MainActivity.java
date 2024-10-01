@@ -3,15 +3,9 @@ package com.example.programacionmovilej6;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.programacionmovilej6.listeners.MyListener;
 import com.example.programacionmovilej6.services.MainService;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         // Código inicial
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         // Singleton
         myInstance = this;
 
@@ -40,22 +33,36 @@ public class MainActivity extends AppCompatActivity {
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
 
+//        Toast.makeText(MainActivity.this, "Hola", Toast.LENGTH_SHORT).show();
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("llego");
-                mainService.action();
+                mainService.obtener();
             }
         });
 
-        mainService.setMyListener(new MyListener() {
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void mainAction() {
-                Toast.makeText(MainActivity.this, "Hola", Toast.LENGTH_SHORT);
+            public void onClick(View view) {
+                mainService.buscar();
             }
         });
 
-        mainService.simulateMainAction();
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainService.detalles();
+            }
+        });
+
+//        mainService.setMyListener(new MyListener() {
+//            @Override
+//            public void mainAction() {
+//                Toast.makeText(MainActivity.this, "Hola", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+//        mainService.simulateMainAction();
     }
 }
